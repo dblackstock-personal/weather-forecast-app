@@ -1,0 +1,16 @@
+*{
+    background-color: greenyellow;
+}
+
+nav{
+    background-color: darkgrey;
+    color: white;
+    padding: 20px 50px;
+    display:flex;
+    justify-content: center;
+}
+
+nav h4{
+    width: 20%;
+    margin: 0 20px;
+}
