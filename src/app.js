@@ -41,12 +41,19 @@ app.set('views', viewsPath);
 
 //the one we use with handlebars is res.render, seen below
 app.get('/', async(req,res) => {
-    let currentWeather = await weather('aberdeen','uk','metric')
+    let currentWeather = await weather('cambridge','uk','metric')
+    if (typeof currentWeather == 'string'){
+        res.render('index',{
+            title: currentWeather,
+            author: 'Davey Blackstock'
+        })
+    } else{
     res.render('index',{
         title: 'Weather App',
         author: 'Davey Blackstock',
+        location: currentWeather.list[0].name,
         weather: currentWeather.list[0].weather[0].description
-    })
+    })}
 }
 )
 

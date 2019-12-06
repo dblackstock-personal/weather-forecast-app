@@ -14,7 +14,9 @@ const forecast = async (city, country, units) => {
             const responseObject = JSON.parse(response)
             // console.log(responseObject)
             if (responseObject.list[0] == undefined) {
-                console.log('The data provided was incorrect. Please check your location is correct before trying again.')
+                let error = 'The data provided was incorrect. Please check your location is correct before trying again.'
+                console.log(error)
+                return error
             } else {
                 console.log('TEST')
                 return responseObject;
@@ -24,7 +26,6 @@ const forecast = async (city, country, units) => {
             console.log ('error - could not connect to the API service. Please try again later.')
             // return error;
         })
-    // console.log(weatherResponse)
     return weatherResponse;
 }
 

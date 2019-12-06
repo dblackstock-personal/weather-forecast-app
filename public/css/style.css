@@ -10,7 +10,7 @@ nav{
     justify-content: center;
 }
 
-nav h4{
+nav a{
     width: 20%;
     margin: 0 20px;
 }
