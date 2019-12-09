@@ -6,7 +6,12 @@ const rp = require('request-promise');
 //it's async which means it will return a promise
 const forecast = async (city, country, units) => {
     const encodedCityName = encodeURIComponent(city);
-    const weatherMapUrl = `https://api.openweathermap.org/data/2.5/find?q=${encodedCityName},${country}&units=${units}&APPID=6bd0c45c28b9246331d958a4a41528c0`
+    let weatherMapUrl;
+    if (!country) {
+        weatherMapUrl = `https://api.openweathermap.org/data/2.5/find?q=${encodedCityName}&units=${units}&APPID=6bd0c45c28b9246331d958a4a41528c0`
+    } else {
+        weatherMapUrl = `https://api.openweathermap.org/data/2.5/find?q=${encodedCityName},${country}&units=${units}&APPID=6bd0c45c28b9246331d958a4a41528c0`
+    }
     let weatherResponse;
 
     weatherResponse = await rp(weatherMapUrl)
@@ -18,12 +23,14 @@ const forecast = async (city, country, units) => {
                 console.log(error)
                 return error
             } else {
-                console.log('TEST')
+
                 return responseObject;
             }
         })
         .catch(() => {
-            console.log ('error - could not connect to the API service. Please try again later.')
+            let error = 'error - could not connect to the API service. Please try again later.'
+            console.log(error)
+            return error
             // return error;
         })
     return weatherResponse;
