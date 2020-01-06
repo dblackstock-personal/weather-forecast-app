@@ -18,3 +18,7 @@ nav a{
 .results{
     display:none;
 }
+
+input, button{
+    background-color: white;
+}

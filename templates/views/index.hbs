@@ -11,8 +11,7 @@
 
 <body>
     {{>nav}}
-    <h1>{{title}}</h1>
-    <h3>Created by {{author}}</h3>
+    <h1>Get Some Weather</h1>
     <input id=search-box-city type=text placeholder="Enter City">
     <input id=search-box-country type=text placeholder="Enter Country Code (optional)">
     <button id=submit>Look for Weather</button>
@@ -22,6 +21,7 @@
     <h4 class=results id=weather>no weather found - please refresh and try again</h4>
     <h3 class=results>Current Temperature</h3>
     <h4 class=results id=temperature>no temperature found - please refresh and try again</h4>
+    <img class = results src="http://openweathermap.org/img/wn/10d@2x.png" alt="Image depicting the weather conditions" id="weatherImage">
 </body>
 <script src="/js/weatherUpdate.js"></script>
 </html>

@@ -98,7 +98,8 @@ app.get('/api', async (req, res) => {
                 city: currentWeather.list[0].name,
                 country: currentWeather.list[0].sys.country,
                 temperature: currentWeather.list[0].main.temp,
-                weather: currentWeather.list[0].weather[0].description
+                weather: currentWeather.list[0].weather[0].description,
+                icon: currentWeather.list[0].weather[0].icon
             }
         )
     }

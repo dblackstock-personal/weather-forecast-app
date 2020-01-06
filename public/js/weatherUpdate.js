@@ -5,14 +5,13 @@ const results = document.getElementsByClassName('results')
 const city = document.getElementById('location')
 const temperature = document.getElementById('temperature')
 const weatherReadout = document.getElementById('weather')
+const image = document.getElementById('weatherImage')
 
 const weatherUpdate = () => {
-    console.log('HELLOW ITS WEATHER UPDATE')
-    console.log(searchBoxCountry.value)
     fetch(`http://localhost:2992/api/?city=${searchBoxCity.value}&country=${searchBoxCountry.value}`)
         .then((output) => {
             output.json().then((weatherObject) => {
-                console.log(weatherObject)
+                // console.log(weatherObject)
                 
                 for (let index = 0; index < results.length; index++) {
                     console.log('here')
@@ -21,8 +20,8 @@ const weatherUpdate = () => {
                 city.textContent = `${weatherObject.city}, ${weatherObject.country}`
                 weatherReadout.textContent = weatherObject.weather
                 temperature.textContent = `${weatherObject.temperature}°C`
-
-
+                console.log(weatherObject)
+                image.src = `http://openweathermap.org/img/wn/${weatherObject.icon}@2x.png`
             })
         })
 }
